@@ -8,6 +8,10 @@ body {
   font-family: Menlo, Consolas, Monaco, 'Courier New', monospace;
 }
 
+img {
+  display: block;
+}
+
 main {
   padding: 1rem;
 }
@@ -26,4 +30,9 @@ header {
   max-width: 40rem;
   margin: 0 auto;
   text-align: center;
+}
+
+.toast {
+  max-width: 15rem;
+  margin: 3rem auto;
 }
