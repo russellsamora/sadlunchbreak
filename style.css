@@ -52,6 +52,7 @@ header p {
 
 img.toast {
   max-width: 8rem;
+  min-height: 8rem;
   margin: 0 auto;
   display: inline;
 }
@@ -67,6 +68,10 @@ li {
   margin-bottom: 0.75rem;
   font-size: 14px;
   line-height: 1.5;
+}
+
+span {
+  margin-right: 0.25em;
 }
 
 time {
