@@ -26,14 +26,14 @@ p {
 
 header {
   max-width: 40rem;
-  margin: 2rem auto;
+  margin: 1rem auto;
   text-align: center;
 }
 
 header h1 {
   font-size: 36px;
   line-height: 1;
-  margin: 0.5rem;
+  margin: 0 0.5rem;
 }
 
 header p {
@@ -53,35 +53,26 @@ img.toast {
 }
 
 ul {
-  max-width: 38rem;
+  max-width: 34rem;
   margin: 0 auto;
+  padding: 1rem;
 }
 
 li {
-  list-style-type: square;
-  margin-bottom: 0.5rem;
+  list-style-type: none;
+  margin-bottom: 0.75rem;
   font-size: 14px;
+  line-height: 1.5;
+}
+
+time {
+  color: #999;
+  margin-left: 0.5em;
+  font-size: 0.8em;
 }
 
 .kofi {
   text-align: center;
-}
-
-.kofi a {
-  /* background-color: #000;
-  color: #fff;
-  text-decoration: none;
-  padding: 0.75rem;
-  line-height: 1; */
-}
-
-.kofi a:hover {
-  /* background-color: #444; */
-}
-
-.kofi a:visited,
-.kofi a:active {
-  /* background-color: #000; */
 }
 
 .kofi a img {
