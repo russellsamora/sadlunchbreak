@@ -17,6 +17,7 @@
   d3.json(url)
     .then(function(response) {
       console.log('last updated: ', new Date(response.timestamp));
+      response.data.reverse();
       var li = ul
         .selectAll('.li')
         .data(response.data)
