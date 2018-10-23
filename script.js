@@ -1,7 +1,8 @@
 (function() {
   var ul = d3.select('ul.links');
   var v = Date.now();
-  var url = 'https://pudding.cool/misc/sadlunchbreak/data.json?v=' + v;
+  var url = 'https://pudding.cool/misc/sadlunchbreak/data.json?version=' + v;
+
   var media = {
     text: '📖',
     video: '📺',
@@ -18,6 +19,7 @@
   d3.json(url)
     .then(function(response) {
       console.log('last updated: ', new Date(response.timestamp));
+      console.log(response);
       var li = ul
         .selectAll('.li')
         .data(response.data)
