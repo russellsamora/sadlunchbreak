@@ -12,14 +12,11 @@ img {
   display: block;
 }
 
-main {
+header,
+main,
+footer {
   padding: 1rem;
-}
-
-h1 {
-  font-size: 36px;
-  line-height: 1;
-  margin: 0.5rem;
+  font-size: 14px;
 }
 
 p {
@@ -31,6 +28,22 @@ header {
   max-width: 40rem;
   margin: 2rem auto;
   text-align: center;
+}
+
+header h1 {
+  font-size: 36px;
+  line-height: 1;
+  margin: 0.5rem;
+}
+
+header p {
+  font-size: 14px;
+}
+
+.suggest {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 
 img.toast {
@@ -55,24 +68,25 @@ li {
 }
 
 .kofi a {
-  background-color: #000;
+  /* background-color: #000;
   color: #fff;
   text-decoration: none;
   padding: 0.75rem;
-  line-height: 1;
+  line-height: 1; */
 }
 
 .kofi a:hover {
-  background-color: #444;
+  /* background-color: #444; */
 }
 
 .kofi a:visited,
 .kofi a:active {
-  background-color: #000;
+  /* background-color: #000; */
 }
 
 .kofi a img {
   display: inline-block;
+  display: none;
   width: 1.25rem;
   margin-right: 0.25em;
   vertical-align: middle;
@@ -84,7 +98,10 @@ footer {
 }
 
 @media only screen and (min-width: 40rem) {
-  h1 {
+  header h1 {
     font-size: 64px;
+  }
+  header p {
+    font-size: 16px;
   }
 }
