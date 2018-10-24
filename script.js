@@ -19,7 +19,6 @@
   d3.json(url)
     .then(function(response) {
       console.log('last updated: ', new Date(response.timestamp));
-      console.log(response);
       var li = ul
         .selectAll('.li')
         .data(response.data)
