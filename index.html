@@ -46,7 +46,128 @@
 	<meta name='msapplication-TileImage' content='assets/favicon/ms-icon-144x144.png'>
 	<meta name='theme-color' content='#ffffff'>
 
-	<link rel='stylesheet' type='text/css' media='screen' href='style.css?v=3' />
+	<style>
+		* {
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+		}
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Menlo, Consolas, Monaco, 'Courier New', monospace;
+		}
+
+		img {
+			display: block;
+		}
+
+		header,
+		main,
+		footer {
+			padding: 1rem;
+			font-size: 14px;
+		}
+
+		main {
+			min-height: 640px;
+		}
+
+		p {
+			margin: 1rem;
+			line-height: 1.4;
+		}
+
+		header {
+			max-width: 40rem;
+			margin: 2rem auto 1rem auto;
+			text-align: center;
+		}
+
+		header h1 {
+			font-size: 28px;
+			line-height: 1;
+			margin: 0.5rem;
+		}
+
+		header p {
+			font-size: 14px;
+		}
+
+		.suggest {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+		}
+
+		img.toast {
+			max-width: 8rem;
+			min-height: 8rem;
+			margin: 0 auto;
+			display: inline;
+		}
+
+		ul {
+			max-width: 34rem;
+			margin: 0 auto;
+			padding: 1rem;
+		}
+
+		li {
+			list-style-type: none;
+			margin-bottom: 0.75rem;
+			font-size: 14px;
+			line-height: 1.5;
+		}
+
+		span {
+			margin-right: 0.25em;
+		}
+
+		time {
+			color: #999;
+			margin-left: 0.5em;
+			font-size: 0.8em;
+		}
+
+		.kofi {
+			text-align: center;
+		}
+
+		.kofi a img {
+			display: inline-block;
+			display: none;
+			width: 1.25rem;
+			margin-right: 0.25em;
+			vertical-align: middle;
+		}
+
+		footer {
+			margin-top: 5rem;
+			text-align: center;
+		}
+
+		@media only screen and (min-width: 22rem) {
+			header h1 {
+				font-size: 32px;
+			}
+		}
+
+		@media only screen and (min-width: 30rem) {
+			header h1 {
+				font-size: 48px;
+			}
+		}
+
+		@media only screen and (min-width: 40rem) {
+			header h1 {
+				font-size: 64px;
+			}
+			header p {
+				font-size: 16px;
+			}
+		}
+
+	</style>
 
 	<script async src='https://www.googletagmanager.com/gtag/js?id=UA-37736972-6'></script>
 	<script>
@@ -73,7 +194,7 @@
 	</header>
 	<main>
 		<section>
-			<ul class='links'></ul>
+			<ul class='links'><li style='text-align: center;'>Loading...</li></ul>
 		</section>
 	</main>
 	<footer>
@@ -87,7 +208,53 @@
 				</div>
 		</div>
 	</footer>
-	<script src='d3.v5.min.js'></script>
-	<script src='script.js?v=3'></script>
+	<script>
+		(function () {
+				var ul = document.querySelector('ul.links');
+				var v = Date.now();
+				var url = 'https://pudding.cool/misc/sadlunchbreak/data.json?version=' + v;
+
+				var media = {
+					text: '📖',
+					video: '📺',
+					interactive: '🕹️',
+					image: '🖼️',
+					other: '⁉️'
+				};
+
+				function getIcon(d) {
+					var m = d['Media Type'];
+					return m ? media[m] : media.other;
+				}
+
+				function createLi(d) {
+					var span = '<span>' + getIcon(d) + '</span>';
+					var a = '<a href="' + d.Link + '" target="_blank">' + d.Title + '</a>';
+					var time = (new Date(d.Timestamp)).toString().substring(5, 10)
+					var li = '<li>' + span + a + time + '</li>';
+					return li;
+				}
+				
+				var request = new XMLHttpRequest();
+				request.open('GET', url, true);
+
+				request.onload = function () {
+					if (request.status >= 200 && request.status < 400) {
+						var json = JSON.parse(request.responseText);
+						console.log('last updated: ', new Date(json.timestamp));
+						const html = json.data.map(createLi).join('');
+						ul.innerHTML = html;
+					} else {
+						console.log('server error')
+					}
+				};
+
+				request.onerror = function () {
+					console.log('onerror')
+				};
+
+				request.send();
+			})();
+	</script>
 </body>
 </html>

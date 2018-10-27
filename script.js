@@ -1,5 +1,5 @@
 (function() {
-  var ul = d3.select('ul.links');
+  var ul = document.querySelector('ul.links');
   var v = Date.now();
   var url = 'https://pudding.cool/misc/sadlunchbreak/data.json?version=' + v;
 
@@ -16,30 +16,19 @@
     return m ? media[m] : media.other;
   }
 
+  function createLi(d) {
+    var span = '<span>' + getIcon(d) + '</span>';
+    var a = '<a href="' + d.Link + '" target="_blank">' + d.Title + '</a>';
+    var time = d3.timeFormat('%b %d')(new Date(d.Timestamp));
+    var li = '<li>' + span + a + time + '</li>';
+    return li;
+  }
+
   d3.json(url)
     .then(function(response) {
       console.log('last updated: ', new Date(response.timestamp));
-      var li = ul
-        .selectAll('.li')
-        .data(response.data)
-        .enter()
-        .append('li');
-
-      li.append('span').text(getIcon);
-
-      li.append('a')
-        .attr('href', function(d) {
-          return d.Link;
-        })
-        .attr('target', '_blank')
-        .text(function(d) {
-          return d.Title;
-        });
-
-      li.append('time').text(function(d) {
-        var date = new Date(d.Timestamp);
-        return '' + d3.timeFormat('%b %d')(date) + '';
-      });
+      const html = response.data.map(createLi).join('');
+      ul.innerHTML = html;
     })
     .catch(console.error);
 })();
