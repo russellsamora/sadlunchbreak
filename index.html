@@ -109,7 +109,7 @@
 		}
 
 		ul {
-			max-width: 34rem;
+			max-width: 35rem;
 			margin: 0 auto;
 			padding: 0;
 		}
@@ -129,6 +129,7 @@
 			color: #999;
 			margin-left: 0.5em;
 			font-size: 0.8em;
+			white-space: pre;
 		}
 
 		.kofi {
@@ -232,7 +233,7 @@
 				function createLi(d) {
 					var span = '<span>' + getIcon(d) + '</span>';
 					var a = '<a href="' + d.Link + '" target="_blank">' + d.Title + '</a>';
-					var time = (new Date(d.Timestamp)).toString().substring(3, 10)
+					var time = '<time>' + (new Date(d.Timestamp)).toString().substring(4, 10) + '</time>'
 					var li = '<li>' + span + a + time + '</li>';
 					return li;
 				}
