@@ -230,7 +230,7 @@
 				function createLi(d) {
 					var span = '<span>' + getIcon(d) + '</span>';
 					var a = '<a href="' + d.Link + '" target="_blank">' + d.Title + '</a>';
-					var time = (new Date(d.Timestamp)).toString().substring(5, 10)
+					var time = (new Date(d.Timestamp)).toString().substring(3, 10)
 					var li = '<li>' + span + a + time + '</li>';
 					return li;
 				}
