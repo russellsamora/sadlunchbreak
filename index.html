@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Sad Lunch Break</title>
 
@@ -8,19 +9,19 @@
 	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 	<meta name='description' content='You are here because you are eating alone at your computer.' />
 	<meta name='news_keywords' content='sad, lunch, break, computer, alone, eating, bored' />
-	
+
 	<meta property='og:title' content='Sad Lunch Break' />
 	<meta property='og:site_name' content='Sad Lunch Break' />
 	<meta property='og:url' content='https://sadlunchbreak.com' />
 	<meta property='og:description' content='You are here because you are eating alone at your computer.' />
 	<meta property='og:type' content='article' />
 	<meta property='og:locale' content='en_US' />
-	
+
 	<meta property='og:image' content='https://sadlunchbreak.com/assets/facebook.jpg' />
 	<meta property='og:image:type' content='image/jpeg' />
 	<meta property='og:image:width' content='1200' />
 	<meta property='og:image:height' content='600' />
-	
+
 	<meta name='twitter:card' content='summary_large_image' />
 	<meta name='twitter:site' content='https://sadlunchbreak.com' />
 	<meta name='twitter:creator' content='codenberg' />
@@ -51,10 +52,12 @@
 			box-sizing: border-box;
 			-moz-box-sizing: border-box;
 		}
+
 		body {
 			margin: 0;
 			padding: 0;
-			font-family: Menlo, Consolas, Monaco, 'Courier New', monospace;
+			font-family: Range, Menlo, Consolas, Monaco, 'Courier New', monospace;
+			color: #1c1c1c;
 		}
 
 		img {
@@ -86,7 +89,8 @@
 		header h1 {
 			font-size: 28px;
 			line-height: 1;
-			margin: 0.5rem;
+			margin-top: 0.75rem;
+			margin-bottom: 0.5rem;
 		}
 
 		header p {
@@ -105,7 +109,11 @@
 			max-width: 8rem;
 			min-height: 8rem;
 			margin: 0 auto;
-			display: inline;
+			transition: transform 125ms ease-in-out;
+		}
+
+		img.toast:hover {
+			transform: rotate(8deg)
 		}
 
 		ul {
@@ -165,13 +173,24 @@
 			header h1 {
 				font-size: 64px;
 			}
+
 			header p {
 				font-size: 16px;
 			}
 		}
-
 	</style>
 
+	<style>
+		@font-face {
+			font-family: 'Range';
+			src: url('assets/range-regular.woff2') format('woff2'),
+				url('assets/range-regular.woff') format('woff');
+			font-weight: 400;
+			font-style: normal;
+			font-stretch: normal;
+			/* font-display: swap; */
+		}
+	</style>
 	<script async src='https://www.googletagmanager.com/gtag/js?id=UA-37736972-6'></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
@@ -188,6 +207,7 @@
 		});
 	</script>
 </head>
+
 <body>
 	<header>
 		<img class='toast' src='assets/toast.png'>
@@ -197,7 +217,9 @@
 	</header>
 	<main>
 		<section>
-			<ul class='links'><li style='text-align: center;'>Loading...</li></ul>
+			<ul class='links'>
+				<li style='text-align: center;'>Loading...</li>
+			</ul>
 		</section>
 	</main>
 	<footer>
@@ -205,52 +227,53 @@
 	</footer>
 	<script>
 		(function () {
-				var ul = document.querySelector('ul.links');
-				var v = Date.now();
-				var url = 'https://pudding.cool/misc/sadlunchbreak/data.json?version=' + v;
+			var ul = document.querySelector('ul.links');
+			var v = Date.now();
+			var url = 'https://pudding.cool/misc/sadlunchbreak/data.json?version=' + v;
 
-				var media = {
-					text: '📖',
-					video: '📺',
-					interactive: '🕹️',
-					image: '🖼️',
-					audio: '🎧',
-					other: '⁉️'
-				};
+			var media = {
+				text: '📖',
+				video: '📺',
+				interactive: '🕹️',
+				image: '🖼️',
+				audio: '🎧',
+				other: '⁉️'
+			};
 
-				function getIcon(d) {
-					var m = d['Media Type'];
-					return m ? media[m] : media.other;
+			function getIcon(d) {
+				var m = d['Media Type'];
+				return m ? media[m] : media.other;
+			}
+
+			function createLi(d) {
+				var span = '<span>' + getIcon(d) + '</span>';
+				var a = '<a href="' + d.Link + '" target="_blank">' + d.Title + '</a>';
+				var time = '<time>' + (new Date(d.Timestamp)).toString().substring(4, 10) + '</time>'
+				var li = '<li>' + span + a + time + '</li>';
+				return li;
+			}
+
+			var request = new XMLHttpRequest();
+			request.open('GET', url, true);
+
+			request.onload = function () {
+				if (request.status >= 200 && request.status < 400) {
+					var json = JSON.parse(request.responseText);
+					console.log('last updated: ', new Date(json.timestamp));
+					const html = json.data.map(createLi).join('');
+					ul.innerHTML = html;
+				} else {
+					console.log('server error')
 				}
+			};
 
-				function createLi(d) {
-					var span = '<span>' + getIcon(d) + '</span>';
-					var a = '<a href="' + d.Link + '" target="_blank">' + d.Title + '</a>';
-					var time = '<time>' + (new Date(d.Timestamp)).toString().substring(4, 10) + '</time>'
-					var li = '<li>' + span + a + time + '</li>';
-					return li;
-				}
-				
-				var request = new XMLHttpRequest();
-				request.open('GET', url, true);
+			request.onerror = function () {
+				console.log('onerror')
+			};
 
-				request.onload = function () {
-					if (request.status >= 200 && request.status < 400) {
-						var json = JSON.parse(request.responseText);
-						console.log('last updated: ', new Date(json.timestamp));
-						const html = json.data.map(createLi).join('');
-						ul.innerHTML = html;
-					} else {
-						console.log('server error')
-					}
-				};
-
-				request.onerror = function () {
-					console.log('onerror')
-				};
-
-				request.send();
-			})();
+			request.send();
+		})();
 	</script>
 </body>
+
 </html>
