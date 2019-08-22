@@ -227,6 +227,7 @@
 	</footer>
 	<script>
 		(function () {
+			var msDay = 86400000;
 			var ul = document.querySelector('ul.links');
 			var v = Date.now();
 			var url = 'https://pudding.cool/misc/sadlunchbreak/data.json?version=' + v;
@@ -246,9 +247,13 @@
 			}
 
 			function createLi(d) {
+				var date = new Date(d.Timestamp);
+				var diff = Math.floor((v - date) / msDay);
+				var time = diff >= 100 ? 'Old' : (date).toString().substring(4, 10);
 				var span = '<span>' + getIcon(d) + '</span>';
 				var a = '<a href="' + d.Link + '" target="_blank">' + d.Title + '</a>';
-				var time = '<time>' + (new Date(d.Timestamp)).toString().substring(4, 10) + '</time>'
+
+				var time = '<time>' + time + '</time>'
 				var li = '<li>' + span + a + time + '</li>';
 				return li;
 			}
