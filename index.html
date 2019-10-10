@@ -132,17 +132,22 @@
 		}
 
 		ul {
-			max-width: 35rem;
-			margin: 0 auto;
+			/* max-width: 35rem; */
+			/* margin: 0 auto; */
 			padding: 0;
 		}
 
 		li {
 			list-style-type: none;
-			margin-bottom: 0.75rem;
+			margin-bottom: 1em;
 			font-size: 14px;
 			line-height: 1.5;
 		}
+
+		/* 
+		li:first-of-type {
+			font-size: 22px;
+		} */
 
 		span {
 			margin-right: 0.25em;
@@ -155,21 +160,9 @@
 			white-space: pre;
 		}
 
-		.kofi {
-			text-align: center;
-		}
-
-		.kofi a img {
-			display: inline-block;
-			display: none;
-			width: 1.25rem;
-			margin-right: 0.25em;
-			vertical-align: middle;
-		}
-
 		footer {
 			margin-top: 5rem;
-			text-align: center;
+			/* text-align: center; */
 		}
 
 		@media only screen and (min-width: 22rem) {
@@ -185,12 +178,31 @@
 		}
 
 		@media only screen and (min-width: 40rem) {
+			header {
+				max-width: none;
+			}
+
+			img.toast {
+				position: fixed;
+				bottom: 1rem;
+				right: 1rem;
+				min-width: auto;
+				min-height: auto;
+				width: 10vw;
+				height: auto;
+			}
+
 			header h1 {
-				font-size: 64px;
+				font-size: 72px;
 			}
 
 			header p {
 				font-size: 16px;
+
+			}
+
+			li {
+				font-size: 2.125vw;
 			}
 		}
 	</style>
@@ -236,7 +248,7 @@
 	<main>
 		<section>
 			<ul class='links'>
-				<li style='text-align: center;'>Loading...</li>
+				<li style='text-align: left;'>Loading...</li>
 			</ul>
 		</section>
 	</main>
