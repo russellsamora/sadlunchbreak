@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Sad Lunch Break</title>
+
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+	<meta name='description' content='You are here because you are eating alone at your computer.' />
+	<meta name='news_keywords' content='sad, lunch, break, computer, alone, eating, bored' />
+
+	<meta property='og:title' content='Sad Lunch Break' />
+	<meta property='og:site_name' content='Sad Lunch Break' />
+	<meta property='og:url' content='https://sadlunchbreak.com' />
+	<meta property='og:description' content='You are here because you are eating alone at your computer.' />
+	<meta property='og:type' content='article' />
+	<meta property='og:locale' content='en_US' />
+
+	<meta property='og:image' content='https://sadlunchbreak.com/assets/facebook.jpg' />
+	<meta property='og:image:type' content='image/jpeg' />
+	<meta property='og:image:width' content='1200' />
+	<meta property='og:image:height' content='600' />
+
+	<meta name='twitter:card' content='summary_large_image' />
+	<meta name='twitter:site' content='https://sadlunchbreak.com' />
+	<meta name='twitter:creator' content='codenberg' />
+	<meta name='twitter:title' content='Sad Lunch Break' />
+	<meta name='twitter:description' content='You are here because you are eating alone at your computer.' />
+	<meta name='twitter:image:src' content='https://sadlunchbreak.com/assets/twitter.jpg' />
+
+	<link rel='apple-touch-icon' sizes='57x57' href='assets/favicon/apple-icon-57x57.png'>
+	<link rel='apple-touch-icon' sizes='60x60' href='assets/favicon/apple-icon-60x60.png'>
+	<link rel='apple-touch-icon' sizes='72x72' href='assets/favicon/apple-icon-72x72.png'>
+	<link rel='apple-touch-icon' sizes='76x76' href='assets/favicon/apple-icon-76x76.png'>
+	<link rel='apple-touch-icon' sizes='114x114' href='assets/favicon/apple-icon-114x114.png'>
+	<link rel='apple-touch-icon' sizes='120x120' href='assets/favicon/apple-icon-120x120.png'>
+	<link rel='apple-touch-icon' sizes='144x144' href='assets/favicon/apple-icon-144x144.png'>
+	<link rel='apple-touch-icon' sizes='152x152' href='assets/favicon/apple-icon-152x152.png'>
+	<link rel='apple-touch-icon' sizes='180x180' href='assets/favicon/apple-icon-180x180.png'>
+	<link rel='icon' type='image/png' sizes='192x192' href='assets/favicon/android-icon-192x192.png'>
+	<link rel='icon' type='image/png' sizes='32x32' href='assets/favicon/favicon-32x32.png'>
+	<link rel='icon' type='image/png' sizes='96x96' href='assets/favicon/favicon-96x96.png'>
+	<link rel='icon' type='image/png' sizes='16x16' href='assets/favicon/favicon-16x16.png'>
+	<link rel='manifest' href='assets/favicon/manifest.json'>
+	<meta name='msapplication-TileColor' content='#ffffff'>
+	<meta name='msapplication-TileImage' content='assets/favicon/ms-icon-144x144.png'>
+	<meta name='theme-color' content='#ffffff'>
+
+	<style>
+		* {
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Range, Menlo, Consolas, Monaco, 'Courier New', monospace;
+			background-color: #FDF3E7;
+			color: #756557;
+			font-weight: 600;
+		}
+
+		p {
+			margin: 1rem;
+			line-height: 1.4;
+		}
+
+		a {
+			color: #8B7867;
+			font-weight: 600;
+		}
+
+		a:hover {
+			color: #047982;
+		}
+
+		img {
+			display: block;
+		}
+
+		header,
+		main,
+		footer {
+			padding: 1rem;
+			font-size: 14px;
+		}
+
+		main {
+			min-height: 640px;
+		}
+
+		header {
+			max-width: 40rem;
+			margin: 2rem auto 1rem auto;
+			text-align: center;
+		}
+
+		header h1 {
+			font-size: 28px;
+			line-height: 1;
+			margin-top: 0.75rem;
+			margin-bottom: 0.5rem;
+		}
+
+		header p {
+			font-size: 14px;
+		}
+
+		.suggest {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			font-size: 12px;
+			text-transform: uppercase;
+		}
+
+		.shop {
+			position: absolute;
+			top: 1rem;
+			left: 1rem;
+			font-size: 12px;
+			text-transform: uppercase;
+		}
+
+		img.toast {
+			max-width: 8rem;
+			min-height: 8rem;
+			margin: 0 auto;
+			transition: transform 125ms ease-in-out;
+		}
+
+		img.toast:hover {
+			transform: rotate(8deg);
+		}
+
+		ul {
+			padding: 0;
+		}
+
+		li {
+			list-style-type: none;
+			margin-bottom: 1em;
+			font-size: 14px;
+			line-height: 1.5;
+		}
+
+		span {
+			margin-right: 0.25em;
+		}
+
+		time {
+			opacity: 0.67;
+			margin-left: 0.5em;
+			font-size: 0.8em;
+			white-space: pre;
+		}
+
+		footer {
+			margin-top: 5rem;
+		}
+
+		@media only screen and (min-width: 22rem) {
+			header h1 {
+				font-size: 32px;
+			}
+		}
+
+		@media only screen and (min-width: 30rem) {
+			header h1 {
+				font-size: 48px;
+			}
+		}
+
+		@media only screen and (min-width: 40rem) {
+			header {
+				max-width: none;
+			}
+
+			img.toast {
+				position: fixed;
+				bottom: 1rem;
+				right: 1rem;
+				min-width: auto;
+				min-height: auto;
+				width: 10vw;
+				height: auto;
+			}
+
+			header h1 {
+				font-size: 72px;
+			}
+
+			header p {
+				font-size: 16px;
+
+			}
+
+			li {
+				font-size: 2.125vw;
+			}
+		}
+	</style>
+
+	<style>
+		@font-face {
+			font-family: 'Range';
+			src: url('assets/range-regular.woff2') format('woff2'),
+				url('assets/range-regular.woff') format('woff');
+			font-weight: 400;
+			font-style: normal;
+			font-stretch: normal;
+			/* font-display: swap; */
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<img class='toast' src='assets/toast.png'>
+		<h1>Sad Lunch Break</h1>
+		<p>You are here because you are eating alone at your computer.</p>
+		<a class='suggest' href='https://goo.gl/forms/TQkH2JPWtwWQkO5v1'>Suggest a link</a>
+		<a class='shop'
+			href='https://cottonbureau.com/products/sad-lunch-break#/2048404/tee-men-standard-tee-natural-100percent-cotton-s'>Get a t-shirt!</a>
+	</header>
+	<main id="content">
+		<section>
+			<ul class='links'>
+				<!-- links -->
+			</ul>
+		</section>
+	</main>
+	<footer>
+		<p>Maintained by <a href='https://twitter.com/codenberg/' target='_blank'>@codenberg</a></p>
+	</footer>
+	<script data-goatcounter="https://russellgoldenberg_github_io.goatcounter.com/count" async
+		src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
