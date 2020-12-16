@@ -33,7 +33,6 @@ function parse(response) {
 }
 
 function render(data) {
-	// const msDay = 86400000;
 	const media = {
 		text: '📖',
 		video: '📺',
@@ -50,8 +49,6 @@ function render(data) {
 
 	const createLink = (d) => {
 		const date = new Date(d.Timestamp);
-		// const diff = Math.floor((v - date) / msDay);
-		// const time = diff >= 100 ? 'Old' : (date).toString().substring(4, 10);
 		const span = `<span>${getIcon(d)}</span>`;
 		const a = `<a href="${d.Link}">${d.Title}</a>`;
 		const time = `<time>${(date).toString().substring(4, 10)}</time>`;
