@@ -57,15 +57,18 @@ function render(data) {
 	}
 
 	const links = data.map(createLink).join('');
-	const html = template.replace("<!-- links -->", links);
+	const v = `version-${Date.now()}`;
+	const html = template.replace("version-tk", v).replace("<!-- links -->", links);
 	fs.writeFileSync("./index.html", html);
 	return true;
 }
 
 async function init() {
+	console.log("start");
 	const sheet = await downloadSheet(SHEET_OPTS)
 	const data = parse(sheet);
 	render(data);
+	console.log("stop");
 }
 
 init();
