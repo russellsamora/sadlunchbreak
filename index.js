@@ -3,6 +3,8 @@ const request = require('request');
 const dsv = require('d3-dsv');
 const arr = require('d3-array');
 
+const COUNT = 50;
+
 const template = fs.readFileSync("./template.html", "utf8");
 
 const SHEET_OPTS = {
@@ -26,7 +28,7 @@ function downloadSheet({ id, gid }) {
 function parse(response) {
 	const approved = response.filter(d => d.approved);
 	approved.sort((a, b) => arr.descending(new Date(a.Timestamp), new Date(b.Timestamp)));
-	const data = approved.slice(0, 100);
+	const data = approved.slice(0, COUNT);
 	return data;
 }
 
@@ -51,7 +53,7 @@ function render(data) {
 		// const diff = Math.floor((v - date) / msDay);
 		// const time = diff >= 100 ? 'Old' : (date).toString().substring(4, 10);
 		const span = `<span>${getIcon(d)}</span>`;
-		const a = `<a href="${d.Link}>${d.Title}</a>`;
+		const a = `<a href="${d.Link}">${d.Title}</a>`;
 		const time = `<time>${(date).toString().substring(4, 10)}</time>`;
 		const li = `<li>${span}${a}${time}</li>`;
 		return li;
