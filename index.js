@@ -66,7 +66,6 @@ async function init() {
 	const sheet = await downloadSheet(SHEET_OPTS)
 	const data = parse(sheet);
 	render(data);
-	process.exit();
 }
 
 init();
