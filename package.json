@@ -1,29 +1,29 @@
 {
-  "name": "sadlunchbreak",
-  "version": "1.0.10",
-  "description": "",
-  "main": "index.js",
-  "engines": {
-    "node": "14.15.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/russellgoldenberg/sadlunchbreak.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/russellgoldenberg/sadlunchbreak/issues"
-  },
-  "homepage": "https://github.com/russellgoldenberg/sadlunchbreak#readme",
-  "devDependencies": {
-    "d3-array": "^2.9.1",
-    "d3-dsv": "^2.0.0",
-    "request": "^2.88.2"
-  }
+	"name": "sadlunchbreak",
+	"version": "1.0.11",
+	"description": "",
+	"main": "index.js",
+	"engines": {
+		"node": "14.15.0"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/russellgoldenberg/sadlunchbreak.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/russellgoldenberg/sadlunchbreak/issues"
+	},
+	"homepage": "https://github.com/russellgoldenberg/sadlunchbreak#readme",
+	"devDependencies": {
+		"d3-array": "^2.9.1",
+		"d3-dsv": "^2.0.0",
+		"request": "^2.88.2"
+	}
 }
