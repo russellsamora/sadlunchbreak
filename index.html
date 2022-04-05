@@ -85,11 +85,7 @@
 		main,
 		footer {
 			padding: 1rem;
-			font-size: 14px;
-		}
-
-		main {
-			min-height: 640px;
+			text-align: center;
 		}
 
 		header {
@@ -105,10 +101,6 @@
 			margin-bottom: 0.5rem;
 		}
 
-		header p {
-			font-size: 14px;
-		}
-
 		.suggest {
 			position: absolute;
 			top: 1rem;
@@ -118,16 +110,16 @@
 		}
 
 		.shop {
-			position: absolute;
+			/* position: absolute;
 			top: 1rem;
-			left: 1rem;
-			font-size: 12px;
-			text-transform: uppercase;
+			left: 1rem; */
+			/* font-size: 12px; */
+			/* text-transform: uppercase; */
 		}
 
 		img.toast {
-			max-width: 8rem;
-			min-height: 8rem;
+			display: block;
+			max-width: 400px;
 			margin: 0 auto;
 			transition: transform 125ms ease-in-out;
 		}
@@ -179,16 +171,6 @@
 				max-width: none;
 			}
 
-			img.toast {
-				position: fixed;
-				bottom: 1rem;
-				right: 1rem;
-				min-width: auto;
-				min-height: auto;
-				width: 10vw;
-				height: auto;
-			}
-
 			header h1 {
 				font-size: 72px;
 			}
@@ -207,8 +189,7 @@
 	<style>
 		@font-face {
 			font-family: 'Range';
-			src: url('assets/range-regular.woff2') format('woff2'),
-				url('assets/range-regular.woff') format('woff');
+			src: url('assets/range-regular.woff2') format('woff2');
 			font-weight: 400;
 			font-style: normal;
 			font-stretch: normal;
@@ -219,22 +200,18 @@
 
 <body>
 	<header>
-		<img class='toast' src='assets/toast.png' alt="sad toast" />
-		<h1>Sad Lunch Break</h1>
-		<p>You are here because you are eating alone at your computer.</p>
-		<a class='suggest' href='https://goo.gl/forms/TQkH2JPWtwWQkO5v1'>Suggest a link</a>
-		<a class='shop'
-			href='https://cottonbureau.com/products/sad-lunch-break#/2048404/tee-men-standard-tee-natural-100percent-cotton-s'>Get a t-shirt!</a>
+		<h1>sad lunch break</h1>
+		<p>you are here because you are eating alone at your computer</p>
+		<!-- <a class='suggest' href='https://goo.gl/forms/TQkH2JPWtwWQkO5v1'>Suggest a link</a> -->
 	</header>
 	<main id="content">
-		<section>
-			<ul class='links'>
-				<!-- links -->
-			</ul>
-		</section>
+		<img class='toast' src='assets/toast.png' alt="sad toast" />
 	</main>
 	<footer>
-		<p>Maintained by <a href='https://twitter.com/codenberg/' target='_blank'>@codenberg</a></p>
+		<p><a class='shop'
+			href='https://cottonbureau.com/products/sad-lunch-break#/2048404/tee-men-standard-tee-natural-100percent-cotton-s'>buy
+			a t-shirt</a></p>
+		<p><a href='https://twitter.com/codenberg/' target='_blank'>@codenberg</a></p>
 	</footer>
 	<script data-goatcounter="https://russellgoldenberg_github_io.goatcounter.com/count" async
 		src="//gc.zgo.at/count.js"></script>
