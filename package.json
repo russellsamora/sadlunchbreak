@@ -12,15 +12,15 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/russellgoldenberg/sadlunchbreak.git"
+		"url": "git+https://github.com/russellsamora/sadlunchbreak.git"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/russellgoldenberg/sadlunchbreak/issues"
+		"url": "https://github.com/russellsamora/sadlunchbreak/issues"
 	},
-	"homepage": "https://github.com/russellgoldenberg/sadlunchbreak#readme",
+	"homepage": "https://github.com/russellsamora/sadlunchbreak#readme",
 	"devDependencies": {
 		"d3-array": "^2.9.1",
 		"d3-dsv": "^2.0.0",
